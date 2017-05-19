@@ -26,8 +26,8 @@ class Purchased_goods(models.Model):
             total_count+=good.count
         return total_count
 
+zzzzzzz
 
-    
 class GiftGoods(models.Model):
     classname = models.CharField(max_length=200, null=False);
     name = models.CharField(max_length=201, null=False);
