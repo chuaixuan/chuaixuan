@@ -1,0 +1,28 @@
+{% load staticfiles %}
+{% load url from future %}
+<html>
+<head>
+    <meta charset="UTF-8">
+    <title>Let's Go</title>
+    <link rel="stylesheet" href="{% static 'css/base.css' %}">
+    <script type="text/javascript" src="../../static/js/jquery-3.2.1.js"></script>
+    <script src="../../static/js/shop_list.js"></script>
+    {% block css %}
+    {% endblock %}
+</head>
+<body>
+<div class="header">
+    <div class="header_box">
+        <button class="button">Let's Go</button>
+        <button class="button {% block a %}{% endblock %}"onclick="location.href='{% url 'homepage' %}'">购物车</button>
+        <button class="button {% block c %}{% endblock %}"onclick="location.href='{% url 'shop_list' %}'">商品列表</button>
+        <button class="shopping-car {% block b %}{% endblock %}"onclick="location.href='{% url 'pay_list' %}'">
+            <img src="{% static 'img/shopping_icon.jpg' %} ">购物车(<span id="shop_count">{{ total_count }}</span>)
+
+        </button>
+    </div>
+</div>
+{% block web %}
+{% endblock %}
+</body>
+</html>

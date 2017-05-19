@@ -1,0 +1,23 @@
+.main {
+    width: 90%;
+    background-color: #bababa;
+    margin: 30px 60px;
+}
+.main-page {
+    margin: 0;
+    padding: 5%;
+}
+.bun-demo{
+    margin: 0;
+    padding: 6px;
+    height: 40px;
+    width: 10%;
+    background: #3192ff;
+    border-radius: 5px;
+    color: #ffffee;
+    font-size: 25px;
+    min-width: 90px;
+    line-height: 40px;
+    text-align: center;
+    cursor: pointer;
+}

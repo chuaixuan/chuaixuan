@@ -1,0 +1,71 @@
+.box {
+    font-family: monospace;
+    width: 80%;
+    margin: 50px 10%;
+    border: #cbcbbd solid 1px;
+    padding: 0;
+    position: absolute;
+    border-radius: 2px;
+}
+.title{
+    font-family: "Bitstream Vera Sans Mono", Monaco, "Courier New", Courier, monospace;
+    padding-left: 30px;
+    font-weight: bold;
+    font-size: 20px;
+}
+.boxs {
+    width: auto;
+    background: #e4e4d5;
+    line-height: 60px;
+}
+.table-shopping {
+    margin: 20px auto 50px;
+    width: 95%;
+    border-collapse: collapse;
+    /*table-layout: fixed;*/
+}
+
+th, td {
+    border: 1px solid #cbcbbd;
+    height: 40px;
+    text-align: center;
+}
+.change_number{
+    width: 99px;
+    height: 25px;
+    border-radius: 2.5px;
+    border: 1px solid rgba(0,0,0,0.4);
+    margin: auto;
+}
+.bt_style{
+    border: none;
+}
+.bt_less_number{
+    outline: none;
+    width: 33px;
+    background: white;
+    height: 25px;
+    border-right:1px solid rgba(0,0,0,0.4);
+    float: left;
+}
+.bt_plus_number{
+    outline: none;
+    background: white;
+    border-left:1px solid rgba(0,0,0,0.4);
+    width: 33px;
+    height: 25px;
+    float: right;
+}
+.text_content{
+    font-size: 14px;
+    position: absolute;
+    padding-left: 10px;
+    padding-top: 5px;
+}
+.bt{
+    background: black;
+    color: white;
+}
+.subtotal_style{
+    font-size: small;
+}

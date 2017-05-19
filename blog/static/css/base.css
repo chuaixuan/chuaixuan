@@ -1,0 +1,51 @@
+body{
+    margin:0;
+    min-width: 630px;
+}
+.header{
+    height: auto;
+    background-color:#333333;
+}
+.header_box{
+    padding-left: 8%;
+}
+.button {
+    border: none;
+    color: #bababa;
+    background: #333333;
+    outline: none;
+    font-size: 15px;
+    height: 60px;
+    line-height: 60px;
+    cursor: pointer;
+    padding: 0 10px;
+}
+
+.button:hover{
+    background: #000000;
+    color: #ffffee;
+}
+.shopping-car:hover {
+    color: #ffffee;
+    background:#000000;
+}
+.shopping-car{
+    margin-right: 200px;
+    float: right;
+    border: none;
+    background: #333333;
+    outline: none;
+    font-size: 15px;
+    height: 60px;
+    cursor: pointer;
+    padding: 0 10px;
+    color: #bababa;
+}
+.wide{
+    margin: 0;
+    font-size: 50px;
+}
+.active{
+    background: black;
+    color: white;
+}

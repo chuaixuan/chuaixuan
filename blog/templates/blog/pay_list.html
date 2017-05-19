@@ -1,0 +1,48 @@
+{% extends 'blog/base.html' %}
+{% load staticfiles %}
+{% block css %}
+    <link rel="stylesheet" href="../../static/css/pay_list.css">
+    <script src="../../static/js/pay_list.js"></script>
+{% endblock %}
+{% block b %}active{% endblock %}
+{% block web %}
+<div class="box">
+    <div class="boxs">
+        <div class="title">
+            购物清单
+        </div>
+    </div>
+    <table class='table-shopping'>
+        <tr>
+            <th>分类</th>
+            <th>名称</th>
+            <th>单价(元)</th>
+            <th>单位</th>
+            <th>数量</th>
+            <th>小计</th>
+        </tr>
+        {% for post in purchased %}
+        <div>
+            <tr>
+                <td>{{ post.classname }}</td>
+                <td>{{ post.name }}</td>
+                <td>{{ post.price }}</td>
+                <td>{{ post.unit }}</td>
+                <td>
+                    <div class="change_number">
+                        <button plus_less_number='1' class="bt_plus_number bt_style" id="{{ post.id }}">+</button>
+                        <span class="text_content">{{ post.count }}</span>
+                        <button plus_less_number='-1' class="bt_less_number bt_style" id="{{ post.id }}">-</button>
+                    </div>
+                </td>
+                <td>
+                    <div id="a{{ post.id }}">
+                        (原价:<span class="subtotal_style">{{ post.sumtotal }}</span>元)
+                    </div>
+                </td>
+            </tr>
+        </div>
+        {% endfor %}
+    </table>
+</div>
+{% endblock %}
