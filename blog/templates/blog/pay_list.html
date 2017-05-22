@@ -36,9 +36,13 @@
                     </div>
                 </td>
                 <td>
-                    <div id="a{{ post.id }}">
-                        (原价:<span class="subtotal_style">{{ post.sumtotal }}</span>元)
-                    </div>
+                    {% if post.gift_count > 0 %}
+                    <span id="discounted_prices{{ post.id }}">{{ post.sumtotal }}</span>元
+                    (原价:<span id="original_price{{ post.id }}">{{ post.original_price }}</span>元)
+                    {% endif %}
+                    {% if post.gift_count <= 0 %}
+                        <span id="original_price{{ post.id }}">{{ post.original_price }}</span>元
+                    {% endif %}
                 </td>
             </tr>
         </div>
