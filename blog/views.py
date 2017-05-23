@@ -57,3 +57,7 @@ def pay_list(request):
                              'sumtotal':selected_goods[0].sumtotal,'total_price':Purchased_goods.total_price()})
     purchased_goods_list = Purchased_goods.objects.all()
     return render(request,'blog/pay_list.html',{'total_count':Purchased_goods.changed_count(),'purchased':purchased_goods_list,'total_price':Purchased_goods.total_price()})
+def payment_page(request):
+    purchased_goods_list = Purchased_goods.objects.all()
+    return render(request,'blog/payment_page.html',{'purchased':purchased_goods_list,'total_count':Purchased_goods.changed_count(),'total_price':Purchased_goods.total_price(),
+                                                    'total_gift_price':Purchased_goods.total_gift_price()})

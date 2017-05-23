@@ -66,6 +66,18 @@ th, td {
     background: black;
     color: white;
 }
+.payment_page{
+    font-family: "Bitstream Vera Sans Mono", Monaco, "Courier New", Courier, monospace;
+    padding-left: 30px;
+    font-weight: bold;
+    font-size: 20px;
+}
+.monery_button{
+    float: right;
+    margin-right: 10px;
+    margin-bottom: 10px;
+    text-align: right;
+}
 .pay {
     width: 59px;
     height: 38px;
@@ -75,10 +87,4 @@ th, td {
     cursor: pointer;
     font-weight: 800;
     color: azure;
-}
-.monery_button{
-    float: right;
-    margin-right: 10px;
-    margin-bottom: 10px;
-    text-align: right;
 }

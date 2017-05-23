@@ -1,10 +1,74 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <title>Title</title>
-</head>
-<body>
-
-</body>
-</html>
+{% extends 'blog/base.html' %}
+{% load staticfiles %}
+{% block css %}
+<link rel="stylesheet" href="../../static/css/payment_page.css">
+{% endblock %}
+{% block web %}
+<div class="box">
+    <div class="boxs">
+        <div class="title">
+            购物清单
+        </div>
+    </div>
+    <table class='table-shopping'>
+        <tr>
+            <th>分类</th>
+            <th>名称</th>
+            <th>单价(元)</th>
+            <th>单位</th>
+            <th>数量</th>
+            <th>小计</th>
+        </tr>
+        <div>
+        {% for post in purchased %}
+            <tr>
+                <td>{{ post.classname }}</td>
+                <td>{{ post.name }}</td>
+                <td>{{ post.price }}</td>
+                <td>{{ post.unit }}</td>
+                <td>
+                        <span >{{ post.count }}</span>
+                </td>
+                <td>
+                    {% if post.gift_count > 0 %}
+                    <span id="discounted_prices{{ post.id }}">{{ post.sumtotal }}</span>元
+                    (原价:<span id="original_price{{ post.id }}">{{ post.original_price }}</span>元)
+                    {% endif %}
+                    {% if post.gift_count <= 0 %}
+                        <span id="original_price{{ post.id }}">{{ post.original_price }}</span>元
+                    {% endif %}
+                </td>
+            </tr>
+        </div>
+        {% endfor %}
+    </table>
+        <div class="boxs">
+        <div class="title">
+            赠送商品
+        </div>
+        </div>
+    <table class='table-shopping'>
+        <tr>
+            <th>分类</th>
+            <th>名称</th>
+            <th>数量</th>
+        </tr>
+            {% for post in purchased %}
+            {% if post.gift_count > 0 %}
+        <tr>
+            <td>{{ post.classname }}</td>
+            <td>{{ post.name }}</td>
+            <td>{{ post.gift_count }}</td>
+        </tr>
+            {% endif %}
+        {% endfor %}
+        </table>
+    <div class="monery_button">
+        <span>总计:{{ total_price }}元</span>
+        <br>
+        <span>节省:{{ total_gift_price }}元</span>
+        <br>
+        <button class="pay float" id="confirm">确认</button>
+    </div>
+</div>
+{% endblock %}

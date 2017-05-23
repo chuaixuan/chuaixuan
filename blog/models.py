@@ -31,6 +31,12 @@ class Purchased_goods(models.Model):
         for good in self:
             total_price+=good.original_price
         return total_price
+    def total_gift_price():
+        total_gift_price=0
+        self=Purchased_goods.objects.all()
+        for good in self:
+            total_gift_price+=good.gift_count*good.price
+        return total_gift_price
 
 class GiftGoods(models.Model):
     classname = models.CharField(max_length=200, null=False);

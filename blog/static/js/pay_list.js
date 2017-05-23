@@ -15,6 +15,9 @@ $(document).ready(function () {
                 else{
                     $('#discounted_prices'+id).text(data.sumtotal.toFixed(1))
                 }
+                if (data.total_count == 0){
+                    return location = '/shop_list/'
+                }
                 $("#"+id).next().text(data.number)
                 $('#shop_count').text(data.total_count)
                 $('#original_price'+id).text(data.original_price.toFixed(1))
