@@ -19,6 +19,7 @@ $(document).ready(function () {
                 $('#shop_count').text(data.total_count)
                 $('#original_price'+id).text(data.original_price.toFixed(1))
                 $('#discounted_prices'+id).text(data.sumtotal.toFixed(1))
+                $('#total').text(data.total_price.toFixed(1))
                 if(data.number==0){
                     $('#'+id).parents('tr').remove()
                 }

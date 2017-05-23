@@ -66,3 +66,19 @@ th, td {
     background: black;
     color: white;
 }
+.pay {
+    width: 59px;
+    height: 38px;
+    background: rgba(4, 125, 206, 0.77);
+    border: solid #cbcbbd 1px;
+    border-radius: 4px;
+    cursor: pointer;
+    font-weight: 800;
+    color: azure;
+}
+.monery_button{
+    float: right;
+    margin-right: 30px;
+    margin-bottom: 10px;
+    text-align: right;
+}

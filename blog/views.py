@@ -54,6 +54,6 @@ def pay_list(request):
         else:
             selected_goods[0].save()
         return JsonResponse({'total_count':Purchased_goods.changed_count(),'number':selected_goods[0].count,'original_price':selected_goods[0].original_price,
-                             'sumtotal':selected_goods[0].sumtotal})
+                             'sumtotal':selected_goods[0].sumtotal,'total_price':Purchased_goods.total_price()})
     purchased_goods_list = Purchased_goods.objects.all()
-    return render(request,'blog/pay_list.html',{'total_count':Purchased_goods.changed_count(),'purchased':purchased_goods_list})
+    return render(request,'blog/pay_list.html',{'total_count':Purchased_goods.changed_count(),'purchased':purchased_goods_list,'total_price':Purchased_goods.total_price()})

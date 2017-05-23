@@ -21,12 +21,16 @@ class Purchased_goods(models.Model):
     gift_price = models.FloatField(default=0)
     def changed_count():
         total_count=0
-        total_price=0
         self=Purchased_goods.objects.all()
         for good in self:
             total_count+=good.count
-            total_price+=good.original_price
         return total_count
+    def total_price():
+        total_price=0
+        self=Purchased_goods.objects.all()
+        for good in self:
+            total_price+=good.original_price
+        return total_price
 
 class GiftGoods(models.Model):
     classname = models.CharField(max_length=200, null=False);
