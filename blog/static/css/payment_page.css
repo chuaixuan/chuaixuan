@@ -19,7 +19,7 @@
     line-height: 60px;
 }
 .table-shopping {
-    margin: 20px auto 50px;
+    margin: 15px auto 50px;
     width: 95%;
     border-collapse: collapse;
     /*table-layout: fixed;*/
@@ -87,4 +87,7 @@ th, td {
     cursor: pointer;
     font-weight: 800;
     color: azure;
+}
+#time{
+    margin: 5px;
 }

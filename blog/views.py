@@ -5,7 +5,9 @@ from .models import GiftGoods
 from django.http import HttpResponse
 from django.http import JsonResponse
 import math
+import datetime
 def homepage(request):
+
     return render(request, 'blog/homepage.html',{'total_count':Purchased_goods.changed_count()})
 def shop_list(request):
     if request.method=='POST':
@@ -15,6 +17,7 @@ def shop_list(request):
             choosed_gift_goods[0].count +=1
             choosed_gift_goods[0].original_price=choosed_gift_goods[0].count*choosed_gift_goods[0].price
             choosed_gift_goods[0].sumtotal = (choosed_gift_goods[0].count - choosed_gift_goods[0].gift_count) * choosed_gift_goods[0].price
+            choosed_gift_goods[0].gift_price = choosed_gift_goods[0].gift_count * choosed_gift_goods[0].price
             choosed_gift_goods[0].save()
         else:
             choosed_post_goods = Shopping_list.objects.filter(id=goods_id)
@@ -44,10 +47,10 @@ def pay_list(request):
             selected_goods[0].count += goods_number
             if selected_gift_goods:
                 selected_goods[0].gift_count=math.floor(selected_goods[0].count/3)
-                selected_goods[0].sumtotal = (selected_goods[0].count - selected_goods[0].gift_count) * float(
-                    selected_goods[0].price)
+                selected_goods[0].sumtotal = (selected_goods[0].count - selected_goods[0].gift_count) * float(selected_goods[0].price)
                 selected_goods[0].save()
             selected_goods[0].original_price = selected_goods[0].count * float(selected_goods[0].price)
+            selected_goods[0].gift_price=selected_goods[0].gift_count*selected_goods[0].price
             selected_goods[0].save()
         if selected_goods[0].count==0:
             selected_goods[0].delete()
@@ -58,10 +61,12 @@ def pay_list(request):
     purchased_goods_list = Purchased_goods.objects.all()
     return render(request,'blog/pay_list.html',{'total_count':Purchased_goods.changed_count(),'purchased':purchased_goods_list,'total_price':Purchased_goods.total_price()})
 def payment_page(request):
+    now = datetime.datetime.now()
+    otherStyleTime = now.strftime("%Y年%m月%d日 %H:%M:%S")
     if request.method == ('POST'):
         purchased_goods_list = Purchased_goods.objects.all()
         purchased_goods_list.delete()
         return HttpResponse()
     purchased_goods_list = Purchased_goods.objects.all()
     return render(request,'blog/payment_page.html',{'purchased':purchased_goods_list,'total_count':Purchased_goods.changed_count(),'total_price':Purchased_goods.total_price(),
-                                                    'total_gift_price':Purchased_goods.total_gift_price()})
+                                                    'total_gift_price':Purchased_goods.total_gift_price(),'otherStyleTime':otherStyleTime})

@@ -3,7 +3,7 @@ $(document).ready(function () {
         var id = $(this).attr('id')
         var cl=$(this).attr('class')
         var count = $(this).attr('plus_less_number')
-        $.ajax({
+         $.ajax({
             url:'/pay_list/',
             type:'POST',
             data:{id:id,co:count},

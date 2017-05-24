@@ -35,7 +35,7 @@ class Purchased_goods(models.Model):
         total_gift_price=0
         self=Purchased_goods.objects.all()
         for good in self:
-            total_gift_price+=good.gift_count*good.price
+            total_gift_price+=good.gift_price
         return total_gift_price
 
 class GiftGoods(models.Model):
