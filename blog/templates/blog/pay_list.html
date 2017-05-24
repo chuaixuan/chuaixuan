@@ -35,7 +35,7 @@
                         <button plus_less_number='-1' class="bt_less_number bt_style" id="{{ post.id }}">-</button>
                     </div>
                 </td>
-                <td>
+                <td id="a{{ post.id }}">
                     {% if post.gift_count > 0 %}
                     <span id="discounted_prices{{ post.id }}">{{ post.sumtotal }}</span>元
                     (原价:<span id="original_price{{ post.id }}">{{ post.original_price }}</span>元)
@@ -49,7 +49,7 @@
         {% endfor %}
     </table>
             <div class="monery_button">
-        <P>总计:<a id="total ">{{ total_price }}</a>元</P>
+        <P>总计:<span id="total">{{ total_price }}</span>元</P>
         <br>
         <button class="pay" id="pay" onclick="location.href='{% url 'payment_page' %}'">付款</button>
     </div>

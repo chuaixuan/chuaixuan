@@ -50,14 +50,15 @@ def pay_list(request):
                 selected_goods[0].sumtotal = (selected_goods[0].count - selected_goods[0].gift_count) * float(selected_goods[0].price)
                 selected_goods[0].save()
             selected_goods[0].original_price = selected_goods[0].count * float(selected_goods[0].price)
-            selected_goods[0].gift_price=selected_goods[0].gift_count*selected_goods[0].price
+            selected_goods[0].gift_price=selected_goods[0].gift_count*float(selected_goods[0].price)
             selected_goods[0].save()
         if selected_goods[0].count==0:
             selected_goods[0].delete()
         else:
             selected_goods[0].save()
         return JsonResponse({'total_count':Purchased_goods.changed_count(),'number':selected_goods[0].count,'original_price':selected_goods[0].original_price,
-                             'sumtotal':selected_goods[0].sumtotal,'total_price':Purchased_goods.total_price()})
+                             'sumtotal':selected_goods[0].sumtotal,'total_price':Purchased_goods.total_price(),'gift_count':selected_goods[0].gift_count})
+        print(selected_goods[0].gift_count)
     purchased_goods_list = Purchased_goods.objects.all()
     return render(request,'blog/pay_list.html',{'total_count':Purchased_goods.changed_count(),'purchased':purchased_goods_list,'total_price':Purchased_goods.total_price()})
 def payment_page(request):
