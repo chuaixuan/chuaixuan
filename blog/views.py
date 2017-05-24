@@ -40,17 +40,17 @@ def shop_list(request):
 def pay_list(request):
     if request.method=='POST':
         goods_id=request.POST['id']
-        goods_number=int(request.POST['co'])
+        goods_number=int(request.POST['count'])
         selected_goods=Purchased_goods.objects.filter(id=goods_id)
         selected_gift_goods=GiftGoods.objects.filter(id=goods_id)
         if selected_goods:
             selected_goods[0].count += goods_number
             if selected_gift_goods:
                 selected_goods[0].gift_count=math.floor(selected_goods[0].count/3)
-                selected_goods[0].sumtotal = (selected_goods[0].count - selected_goods[0].gift_count) * float(selected_goods[0].price)
+                selected_goods[0].sumtotal = (selected_goods[0].count - selected_goods[0].gift_count) * selected_goods[0].price
                 selected_goods[0].save()
-            selected_goods[0].original_price = selected_goods[0].count * float(selected_goods[0].price)
-            selected_goods[0].gift_price=selected_goods[0].gift_count*float(selected_goods[0].price)
+            selected_goods[0].original_price = selected_goods[0].count * selected_goods[0].price
+            selected_goods[0].gift_price=selected_goods[0].gift_count*selected_goods[0].price
             selected_goods[0].save()
         if selected_goods[0].count==0:
             selected_goods[0].delete()

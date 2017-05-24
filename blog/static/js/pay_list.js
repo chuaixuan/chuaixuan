@@ -6,7 +6,7 @@ $(document).ready(function () {
          $.ajax({
             url:'/pay_list/',
             type:'POST',
-            data:{id:id,co:count},
+            data:{id:id,count:count},
             success:function(data){
                 if(data.gift_count>0) {
                     $('#a'+id).text(data.sumtotal.toFixed(1)+'元'+ '(原价：'+data.original_price.toFixed(1)+'元)')
@@ -21,7 +21,7 @@ $(document).ready(function () {
                 $('#discounted_prices'+id).text(data.sumtotal.toFixed(1))
                 $('#total').text(data.total_price.toFixed(1))
                 console.log('#total'+id)
-                if(data.number==0){
+                if(data.number == 0){
                     $('#'+id).parents('tr').remove()
                 }
                 if (data.total_count == 0){

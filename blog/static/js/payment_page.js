@@ -1,15 +1,11 @@
 $(document).ready(function () {
-
-    $('#payment').click(function () {
-
+    $('#pay').click(function () {
         $.ajax({
             type: 'POST',
             url: '/payment_page/',
             success: function (){
-                return location ='/shop_list/';
+                return location ='/shop_list/'
             }
-
         })
-
     })
 })
