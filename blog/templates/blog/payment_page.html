@@ -1,7 +1,8 @@
 {% extends 'blog/base.html' %}
 {% load staticfiles %}
 {% block css %}
-<link rel="stylesheet" href="../../static/css/payment_page.css">
+    <link rel="stylesheet" href="../../static/css/payment_page.css">
+    <script src="../../static/js/payment_page.js"></script>
 {% endblock %}
 {% block web %}
 <div class="box">
@@ -68,7 +69,7 @@
         <br>
         <span>节省:{{ total_gift_price }}元</span>
         <br>
-        <button class="pay float" id="confirm">确认</button>
+        <button class="pay" id="payment" >确认</button>
     </div>
 </div>
 {% endblock %}

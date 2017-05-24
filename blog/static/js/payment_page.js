@@ -1,13 +1,15 @@
 $(document).ready(function () {
-    $('#confirm').click(function () {
+
+    $('#payment').click(function () {
 
         $.ajax({
             type: 'POST',
             url: '/payment_page/',
-            success: function () {
-                 location = '/shop_list';
+            success: function (){
+                return location ='/shop_list/';
             }
-        })
-    });
 
-});
+        })
+
+    })
+})
